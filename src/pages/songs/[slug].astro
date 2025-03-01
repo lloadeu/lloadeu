@@ -1,0 +1,39 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { categories, songs } from "@/lib/data";
+
+export function getStaticPaths() {
+  return songs.map((song) => {
+    const songCategories = categories.filter((category) =>
+      song.categoriesId.includes(category.id)
+    );
+
+    return {
+      params: {
+        slug: song.slug,
+      },
+      props: {
+        song: song,
+        songCategories,
+      },
+    };
+  });
+}
+
+const { slug } = Astro.params;
+const { song, songCategories } = Astro.props;
+const { title, image } = song;
+---
+
+<Layout>
+  <img
+    width="200px"
+    src={image}
+    alt={`Portada de ${title}`}
+    transition:name=`song ${slug} image`
+  />
+
+  <h4>
+    <span transition:name={`song ${slug} title`}>{title}</span>
+  </h4>
+</Layout>

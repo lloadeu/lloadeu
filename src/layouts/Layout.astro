@@ -1,0 +1,36 @@
+---
+import Sidebar from "@/sections/Sidebar.astro";
+import Player from "@/sections/Player";
+import "@/styles/global.css";
+import CommonHead from "@/components/CommonHead.astro";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <CommonHead />
+  </head>
+  <body>
+    <div class="relative h-screen grid gap-2 p-2" id="app">
+      <aside class="[grid-area:aside] flex flex-col overflow-y-auto">
+        <Sidebar />
+      </aside>
+      <main class="[grid-area:main] p-6 rounded-lg overflow-y-auto bg-bg-dark">
+        <slot />
+      </main>
+      <footer class="[grid-area:player] rounded-lg bg-player-bg-dark">
+        <Player client:load transition:name="media-player" transition:persist />
+      </footer>
+    </div>
+  </body>
+</html>
+
+<style>
+  #app {
+    grid-template-areas:
+      "aside main"
+      "player player";
+    grid-template-columns: 350px 1fr; /* 350px is the width of the sidebar */
+    grid-template-rows: 1fr 110px; /* 110px is the height of the player */
+  }
+</style>

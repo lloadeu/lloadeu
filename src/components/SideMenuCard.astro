@@ -1,0 +1,47 @@
+---
+import PlayCardButton from "@/components/PlayCardButton";
+import { songs, type Category } from "@/lib/data";
+import { Image } from "astro:assets";
+
+interface Props {
+  category: Category;
+}
+
+const { category } = Astro.props;
+const { id, slug, title, color, cover } = category;
+
+const songsNum = songs.filter((song) => song.categoriesId.includes(id)).length;
+---
+
+<li>
+  <a
+    class="category-item relative group p-2 flex gap-4 hover:bg-card-primary-dark hover:shadow-lg rounded-sm overflow-hidden transition duration-300"
+    href={`/categories/${slug}`}
+  >
+    <div class="h-12 w-12 aspect-square flex-none rounded-sm overflow-hidden">
+      <Image
+        inferSize
+        class="object-cover w-full h-full"
+        src={cover}
+        alt={`Portada de ${title}`}
+        loading="eager"
+      />
+    </div>
+
+    <PlayCardButton
+      client:visible
+      size="small"
+      transition:name={`play-side-menu ${category.id} button`}
+      transition:persist
+      media={category}
+    />
+
+    <div class="truncate flex flex-col justify-center">
+      <h4 class="truncate text-sm text-white">
+        {title}
+      </h4>
+
+      <span class="text-xs">{songsNum} Cançons</span>
+    </div>
+  </a>
+</li>
