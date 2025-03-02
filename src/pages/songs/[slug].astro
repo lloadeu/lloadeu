@@ -2,6 +2,15 @@
 import Layout from "@/layouts/Layout.astro";
 import { categories, songs } from "@/lib/data";
 
+// import { getCollection } from "astro:content";
+
+// const songCol = await getCollection("songs");
+
+// const songTest = songCol[0];
+// console.log(songTest);
+// const songTestPdfPath = songTest.data.chords;
+// console.log(songTestPdfPath);
+
 export function getStaticPaths() {
   return songs.map((song) => {
     const songCategories = categories.filter((category) =>
@@ -36,4 +45,6 @@ const { title, image } = song;
   <h4>
     <span transition:name={`song ${slug} title`}>{title}</span>
   </h4>
+
+  <!-- <a href={songTestPdfPath} target="_blank">Acords</a> -->
 </Layout>

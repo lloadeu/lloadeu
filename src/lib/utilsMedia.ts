@@ -18,4 +18,11 @@ function getSongCategories(song: Song) {
   );
 }
 
+export function getYoutubeId(url: string) {
+  const p =
+    /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+  const match = url.match(p);
+  return match ? match[1] : false;
+}
+
 export { getCategory, getCategorySongs, getSong, getSongCategories };

@@ -1,6 +1,5 @@
 backend:
   name: git-gateway
-  repo: lloadeu/lloadeu
   branch: main
 
 local_backend: true
@@ -15,4 +14,180 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
+      - { label: "Type", name: "type", widget: "hidden", default: "category" }
       - { label: "Títol", name: "title", widget: "string" }
+      - {
+          label: "Imatge de portada",
+          name: "cover",
+          widget: "image",
+          allow_multiple: false,
+          media_folder: "/public/media/images",
+          public_folder: "/media/images",
+          choose_url: false,
+        }
+      - {
+          label: "Color",
+          name: "color",
+          widget: "select",
+          options:
+            [
+              "red",
+              "orange",
+              "yellow",
+              "green",
+              "teal",
+              "blue",
+              "indigo",
+              "purple",
+              "pink",
+              "emerald",
+              "rose",
+              "gray",
+            ],
+        }
+
+  - name: "homeCategories"
+    label: "Categories Destacades"
+    folder: "src/content/homeCategories"
+    create: false
+    slug: "homeCategories"
+    fields:
+      - { label: "Llista", name: "title", widget: "hidden", default: "Llista" }
+      - { label: "list", name: "value", widget: "hidden", default: "list" }
+      - {
+          label: "Categoria",
+          name: "categoryList",
+          widget: "relation",
+          collection: "categories",
+          value_field: "title",
+          display_fields: ["title"],
+          search_fields: ["title"],
+          multiple: true,
+          min: 4,
+          max: 4,
+        }
+
+  - name: "songs"
+    label: "Cançons"
+    folder: "src/content/songs"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Type", name: "type", widget: "hidden", default: "song" }
+      - { label: "Títol", name: "title", widget: "string" }
+      - {
+          label: "Imatge de Portada",
+          name: "cover",
+          widget: "image",
+          allow_multiple: false,
+          media_folder: "/public/media/images",
+          public_folder: "/media/images",
+          choose_url: false,
+        }
+      - {
+          label: "Categoria",
+          name: "categoryList",
+          widget: "relation",
+          collection: "categories",
+          value_field: "title",
+          display_fields: ["title"],
+          search_fields: ["title"],
+          multiple: true,
+          min: 1,
+        }
+      - {
+          label: "Arxiu mp3",
+          name: "src",
+          widget: "file",
+          allow_multiple: false,
+          media_folder: "/public/media/music",
+          public_folder: "/media/music",
+          choose_url: false,
+        }
+      - { label: "Lletra", name: "body", widget: "markdown" }
+      - {
+          label: "Títol Original",
+          name: "originalTitle",
+          widget: "string",
+          required: false,
+        }
+      - {
+          label: "Autors Originals",
+          name: "originalAuthors",
+          widget: "list",
+          required: false,
+          minimize_collapsed: true,
+          summary: "{{fields.name}}",
+          field: { label: "Nom", name: "name", widget: "string" },
+        }
+      - {
+          label: "Traducció per",
+          name: "traducedBy",
+          widget: "list",
+          required: false,
+          minimize_collapsed: true,
+          summary: "{{fields.name}}",
+          field: { label: "Nom", name: "name", widget: "string" },
+        }
+      - {
+          label: "Interpretació per",
+          name: "arrengedBy",
+          widget: "list",
+          required: false,
+          minimize_collapsed: true,
+          summary: "{{fields.name}}",
+          field: { label: "Nom", name: "name", widget: "string" },
+        }
+      - {
+          label: "Vídeo (URL)",
+          name: "videoUrl",
+          widget: "string",
+          required: false,
+        }
+      - {
+          label: "Vídeo Original (URL)",
+          name: "originalVideoUrl",
+          widget: "string",
+          required: false,
+        }
+      - {
+          label: "Acords",
+          name: "chords",
+          widget: "file",
+          required: false,
+          allow_multiple: false,
+          media_folder: "/public/media/pdf",
+          public_folder: "/media/pdf",
+          choose_url: false,
+        }
+      - {
+          label: "Partitura",
+          name: "musicSheet",
+          widget: "file",
+          required: false,
+          allow_multiple: false,
+          media_folder: "/public/media/pdf",
+          public_folder: "/media/pdf",
+          choose_url: false,
+        }
+
+  - name: "homeSongs"
+    label: "Cançons Destacades"
+    folder: "src/content/homeSongs"
+    create: false
+    slug: "homeSongs"
+    fields:
+      - { label: "Llista", name: "title", widget: "hidden", default: "Llista" }
+      - { label: "list", name: "value", widget: "hidden", default: "list" }
+      - {
+          label: "Cançons",
+          name: "songList",
+          widget: "relation",
+          collection: "songs",
+          value_field: "title",
+          display_fields: ["title"],
+          search_fields: ["title"],
+          multiple: true,
+          min: 4,
+          max: 4,
+        }
