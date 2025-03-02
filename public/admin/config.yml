@@ -1,0 +1,18 @@
+backend:
+  name: git-gateway
+  repo: lloadeu/lloadeu
+  branch: main
+
+local_backend: true
+
+media_folder: public/media
+public_folder: /media
+
+collections:
+  - name: "categories"
+    label: "Categories"
+    folder: "src/content/categories"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Títol", name: "title", widget: "string" }

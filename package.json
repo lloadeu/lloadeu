@@ -3,9 +3,10 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
+    "start": "astro dev",
+    "dev": "pnpx decap-server & astro dev",
     "build": "astro build",
-    "preview": "astro preview",
+    "preview": "pnpx decap-server & astro preview",
     "astro": "astro"
   },
   "dependencies": {
