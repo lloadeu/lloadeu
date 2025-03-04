@@ -1,8 +1,7 @@
 ---
 import PlayCardButton from "@/components/PlayCardButton";
-import type { CategoryData } from "@/env";
-import { type Category } from "@/lib/data";
-import { Image } from "astro:assets";
+import type { CategoryData, SongData } from "@/env";
+import { getCollection } from "astro:content";
 
 interface Props {
   category: CategoryData;
@@ -11,6 +10,19 @@ interface Props {
 
 const { category, class: className } = Astro.props;
 const { id, cover, title } = category;
+
+const songs = await getCollection("songs");
+const categorySongs = songs.filter((song) =>
+  song.data.categoryList.includes(title)
+);
+const categoryPlaylistMedia: SongData[] = categorySongs.map(({ id, data }) => ({
+  id,
+  type: data.type,
+  title: data.title,
+  cover: data.cover,
+  categoryList: data.categoryList,
+  src: data.src,
+}));
 ---
 
 <li class={className}>
@@ -28,7 +40,12 @@ const { id, cover, title } = category;
       />
     </div>
 
-    <PlayCardButton client:visible size="small" media={category} />
+    <PlayCardButton
+      client:visible
+      size="small"
+      media={category}
+      playlistMedia={categoryPlaylistMedia}
+    />
     <div class="truncate flex flex-col justify-center pr-2">
       <h4 class="truncate text-sm text-white">
         <span transition:name=`category ${id} title`>{title}</span>
