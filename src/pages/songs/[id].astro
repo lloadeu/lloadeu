@@ -1,4 +1,6 @@
 ---
+import PlayPageButton from "@/components/PlayPageButton";
+import type { SongData } from "@/env";
 import Layout from "@/layouts/Layout.astro";
 import { render } from "astro:content";
 import { getCollection } from "astro:content";
@@ -10,9 +12,14 @@ export async function getStaticPaths() {
   ]);
 
   return songs.map((song) => {
-    const songCategories = categories.filter((category) =>
-      song.data.categoryList.includes(category.data.title)
-    );
+    const songCategories = categories
+      .filter((category) =>
+        song.data.categoryList.includes(category.data.title)
+      )
+      .map((category) => ({
+        title: category.data.title,
+        link: `/categories/${category.id}`,
+      }));
 
     return {
       params: {
@@ -29,24 +36,49 @@ export async function getStaticPaths() {
 const { id } = Astro.params;
 const { song, songCategories } = Astro.props;
 const { data, body } = song;
-const { cover, title } = data;
+const { cover, title, categoryList } = data;
 // const Content = await render(song);
+
+const songData: SongData = {
+  id,
+  ...data,
+};
 ---
 
 <Layout>
-  <img
-    width="200px"
-    src={cover}
-    alt={`Portada de ${title}`}
-    transition:name=`song ${id} image`
-  />
+  <header class="flex">
+    <img
+      class="max-w-60 aspect-square object-cover shadow-lg rounded-lg"
+      src={cover}
+      alt={`Portada de ${title}`}
+      transition:name=`song ${id} image`
+    />
+    <div class="flex flex-col justify-end ml-8">
+      <h3 class="font-light">Cançó</h3>
+      <h1 class="text-5xl my-2 font-bold text-white">
+        <span transition:name=`song ${id} title`>
+          {title}
+        </span>
+      </h1>
+      <p class="font-semibold">
+        {
+          songCategories.map(({ title, link }, index) => (
+            <>
+              <a class="hover:underline hover:text-white" href={link}>
+                {title}
+              </a>
+              {index < songCategories.length - 1 && ", "}
+            </>
+          ))
+        }
+      </p>
+    </div>
+  </header>
 
-  <h4>
-    <span transition:name={`song ${id} title`}>{title}</span>
-  </h4>
+  <PlayPageButton client:visible media={songData} />
 
   <ul>
-    {songCategories.map((category) => <li>{category.data.title}</li>)}
+    {songCategories.map((category) => <li>{category.title}</li>)}
   </ul>
 
   <div>{body}</div>
