@@ -24,7 +24,9 @@ const useAudioPlayer = (audioRef: React.RefObject<HTMLAudioElement | null>) => {
     if (audioRef.current && currentSong) {
       audioRef.current.src = currentSong.src;
       setCurrentTime(0);
-      audioRef.current.play();
+      if (isPlaying) {
+        audioRef.current.play();
+      }
       // TODO - audioRef play: check double render when song changes
       console.log("currentSong changed audioref triggers play");
     }
