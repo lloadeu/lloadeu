@@ -1,0 +1,59 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const [categories, songs] = await Promise.all([
+    getCollection("categories"),
+    getCollection("songs"),
+  ]);
+
+  return categories.map((category) => {
+    const categorySongs = songs.filter((song) =>
+      song.data.categoryList.includes(category.data.title)
+    );
+    return {
+      params: {
+        id: category.id,
+      },
+      props: {
+        category: category,
+        categorySongs: categorySongs,
+      },
+    };
+  });
+}
+
+const { id } = Astro.params;
+const { category, categorySongs } = Astro.props;
+const { data } = category;
+const { cover, title } = data;
+console.log(categorySongs);
+---
+
+<Layout>
+  <div>
+    <h1 class="text-3xl mb-10">Categoria {id}</h1>
+    <picture>
+      <img
+        class="max-w-64"
+        src={cover}
+        alt={`Portada de ${title}`}
+        transition:name=`category ${id} image`
+      />
+    </picture>
+    <h2 class="text-2xl text-white mt-4">
+      <span transition:name=`category ${id} title`>
+        {title}
+      </span>
+    </h2>
+
+    <ul>
+      {
+        categorySongs.map((song) => (
+          <li class="text-white text-3xl">{song.data.title}</li>
+        ))
+      }
+    </ul>
+  </div>
+</Layout>

@@ -1,39 +1,37 @@
 ---
 import PlayCardButton from "@/components/PlayCardButton";
-import { songs, type Category, type Song } from "@/lib/data";
-import { Image } from "astro:assets";
+import type { CategoryData, SongData } from "@/env";
+import { formatCatSongsNumString } from "@/lib/utilsMedia";
 
 interface Props {
-  media: Song | Category;
+  media: CategoryData | SongData;
+  categorySongsNum?: number;
+  songCategories?: string[];
 }
 
-const { media } = Astro.props;
+const { media, categorySongsNum, songCategories } = Astro.props;
 
 let href = "/";
-// TODO buscar imagen placeholder
 let src = "https://picsum.photos/seed/placeholder4/400/300";
 let title = "Default title";
-let info = "Info";
+let info = "Desconegut";
 let transitionImage = "";
 let transitionTitle = "";
 
 if (media.type === "song") {
-  href = `/songs/${media.slug}`;
-  src = media.image;
-  title = media.title;
-  info = media.artists.join(", ");
-  transitionImage = `song ${media.slug} image`;
-  transitionTitle = `song ${media.slug} title`;
-} else if (media.type === "category") {
-  href = `/categories/${media.slug}`;
+  href = `/songs/${media.id}`;
   src = media.cover;
   title = media.title;
-  info =
-    songs
-      .filter((song) => song.categoriesId.includes(media.id))
-      .length.toString() + " Cançons";
-  transitionImage = `category ${media.slug} image`;
-  transitionTitle = `category ${media.slug} title`;
+  info = songCategories?.join(", ") || info;
+  transitionImage = `song ${media.id} image`;
+  transitionTitle = `song ${media.id} title`;
+} else if (media.type === "category") {
+  href = `/categories/${media.id}`;
+  src = media.cover;
+  title = media.title;
+  info = formatCatSongsNumString(categorySongsNum);
+  transitionImage = `category ${media.id} image`;
+  transitionTitle = `category ${media.id} title`;
 }
 ---
 
@@ -43,10 +41,9 @@ if (media.type === "song") {
     href={href}
   >
     <div class="relative rounded-sm overflow-hidden">
-      <Image
+      <img
         class="object-cover aspect-video object-center"
         src={src}
-        inferSize
         alt={`Portada de ${title}`}
         loading="eager"
       />

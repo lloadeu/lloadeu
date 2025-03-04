@@ -1,12 +1,12 @@
-import type { Category, Song } from "@/lib/data";
+import type { SongData } from "@/env";
 import { create } from "zustand";
 
 export interface PlayerStore {
   isPlaying: boolean;
   mediaId: string | null;
-  playlist: Song[] | null;
+  playlist: SongData[] | null;
   playlistIndex: number;
-  currentSong: Song | null;
+  currentSong: SongData | null;
   duration: number;
   currentTime: number;
   volume: number;
@@ -15,10 +15,10 @@ export interface PlayerStore {
   hasNextSong: () => boolean;
   setIsPlaying: (isPlaying: boolean) => void;
   setMediaId: (mediaId: string | null) => void;
-  setPlaylist: (playlist: Song[]) => void;
+  setPlaylist: (playlist: SongData[]) => void;
   clearPlaylist: () => void;
   setPlaylistIndex: (index: number) => void;
-  setCurrentSong: (currentSong: Song | null) => void;
+  setCurrentSong: (currentSong: SongData | null) => void;
   setDuration: (duration: number) => void;
   setCurrentTime: (currentTime: number) => void;
   setVolume: (volume: number) => void;

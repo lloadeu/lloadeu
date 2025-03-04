@@ -1,7 +1,5 @@
+import type { CategoryData, SongData } from "@/env";
 import { Pause, Play } from "@/icons/PlayerIcons";
-import Songs from "@/icons/Songs.astro";
-import { categories, songs, type Category, type Song } from "@/lib/data";
-import { getCategorySongs } from "@/lib/utilsMedia";
 import { usePlayerStore } from "@/store/playerStore";
 import type React from "react";
 
@@ -17,9 +15,11 @@ const styleTranslate = {
 const PlayCardButton = ({
   size = "big",
   media,
+  playlistMedia,
 }: {
   size?: "big" | "small";
-  media: Song | Category;
+  media: CategoryData | SongData;
+  playlistMedia?: SongData[];
 }) => {
   const isPlaying = usePlayerStore((state) => state.isPlaying);
   const mediaId = usePlayerStore((state) => state.mediaId);
@@ -36,13 +36,12 @@ const PlayCardButton = ({
   const handlePlay = () => {
     if (media.type === "song") {
       playlist && clearPlaylist();
-      setCurrentSong(media as Song);
+      setCurrentSong(media as SongData);
     } else if (media.type === "category") {
-      const categorySongs = getCategorySongs(media.id);
-      if (categorySongs.length === 0) return;
-      setPlaylist(categorySongs);
+      if (!playlistMedia || playlistMedia.length === 0) return;
+      setPlaylist(playlistMedia);
       setPlaylistIndex(0);
-      setCurrentSong(categorySongs[0]);
+      setCurrentSong(playlistMedia[0]);
     }
     setMediaId(media.id);
     setIsPlaying(true);

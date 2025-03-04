@@ -1,37 +1,37 @@
 ---
 import PlayCardButton from "@/components/PlayCardButton";
+import type { CategoryData } from "@/env";
 import { type Category } from "@/lib/data";
 import { Image } from "astro:assets";
 
 interface Props {
-  category: Category;
+  category: CategoryData;
   class?: string;
 }
 
 const { category, class: className } = Astro.props;
-const { slug, title, cover, id } = category;
+const { id, cover, title } = category;
 ---
 
 <li class={className}>
   <a
     class="relative group category-item flex gap-4 bg-card-primary-dark h-10 lg:h-14 shadow-md rounded-sm overflow-hidden hover:scale-[1.03] hover:shadow-xl transition duration-300"
-    href={`/categories/${slug}`}
+    href={`/categories/${id}`}
   >
     <div class="h-full w-auto aspect-square flex-none overflow-hidden">
-      <Image
-        inferSize
+      <img
         class="object-cover aspect-square"
         src={cover}
         alt={`Portada de ${title}`}
         loading="eager"
-        transition:name=`category ${slug} image`
+        transition:name=`category ${id} image`
       />
     </div>
 
     <PlayCardButton client:visible size="small" media={category} />
     <div class="truncate flex flex-col justify-center pr-2">
       <h4 class="truncate text-sm text-white">
-        <span transition:name=`category ${slug} title`>{title}</span>
+        <span transition:name=`category ${id} title`>{title}</span>
       </h4>
     </div>
   </a>

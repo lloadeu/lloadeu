@@ -1,9 +1,46 @@
 ---
-import { homeCategories, homeSongs } from "@/lib/data";
+// import { homeCategories, homeSongs } from "@/lib/data";
 import Layout from "../layouts/Layout.astro";
 import HomeCategoryCard from "@/components/HomeCategoryCard.astro";
 import BigCard from "@/components/BigCard.astro";
 import Greeting from "@/components/Greeting";
+import { getCollection } from "astro:content";
+import type { CategoryData, SongData } from "@/env";
+
+const [categories, songs, homeCategoriesRes, homeSongsRes] = await Promise.all([
+  getCollection("categories"),
+  getCollection("songs"),
+  getCollection("homeCategories"),
+  getCollection("homeSongs"),
+]);
+
+const homeCategoriesList = homeCategoriesRes[0].data.categoryList;
+const homeSongsList = homeSongsRes[0].data.songList;
+
+const homeCategories = categories.filter((category) =>
+  homeCategoriesList.includes(category.data.title)
+);
+const homeSongs = songs.filter((song) =>
+  homeSongsList.includes(song.data.title)
+);
+
+const homeCategoriesData: CategoryData[] = homeCategories.map(
+  ({ id, data }) => ({
+    id,
+    type: data.type,
+    title: data.title,
+    cover: data.cover,
+  })
+);
+
+const homeSongsData: SongData[] = homeSongs.map(({ id, data }) => ({
+  id,
+  type: data.type,
+  title: data.title,
+  cover: data.cover,
+  categoryList: data.categoryList,
+  src: data.src,
+}));
 ---
 
 <Layout>
@@ -13,7 +50,11 @@ import Greeting from "@/components/Greeting";
     desitgeu.
   </h2>
   <ul class="grid grid-cols-2 xl:grid-cols-4 gap-4 max-w-7xl">
-    {homeCategories.map((category) => <HomeCategoryCard category={category} />)}
+    {
+      homeCategoriesData.map((category) => (
+        <HomeCategoryCard category={category} />
+      ))
+    }
   </ul>
   <a
     class="block w-max mt-4 text-right text-sm text-white/80 border-b border-transparent hover:border-white/80 transition-all duration-300"
@@ -21,7 +62,11 @@ import Greeting from "@/components/Greeting";
   >
   <h4 class="text-xl font-bold text-white mt-10 mb-4">Cançons Destacades</h4>
   <ul class="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-7xl">
-    {homeSongs.map((song) => <BigCard media={song} />)}
+    {
+      homeSongsData.map((song) => (
+        <BigCard media={song} songCategories={song.categoryList} />
+      ))
+    }
   </ul>
   <a
     class="block w-max mt-4 text-right text-sm text-white/80 border-b border-transparent hover:border-white/80 transition-all duration-300"

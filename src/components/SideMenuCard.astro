@@ -1,26 +1,48 @@
 ---
 import PlayCardButton from "@/components/PlayCardButton";
-import { songs, type Category } from "@/lib/data";
 import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import type { CategoryData, SongData } from "@/env";
+import { formatCatSongsNumString } from "@/lib/utilsMedia";
 
 interface Props {
-  category: Category;
+  category: CollectionEntry<"categories">;
 }
 
 const { category } = Astro.props;
-const { id, slug, title, color, cover } = category;
+const { id, data } = category;
+const { cover, title, type } = data;
 
-const songsNum = songs.filter((song) => song.categoriesId.includes(id)).length;
+const songs = await getCollection("songs");
+const categorySongs = songs.filter((song) =>
+  song.data.categoryList.includes(title)
+);
+const categorySongsNum = categorySongs.length;
+const categoryPlaylistMedia: SongData[] = categorySongs.map(({ id, data }) => ({
+  id,
+  type: data.type,
+  title: data.title,
+  cover: data.cover,
+  categoryList: data.categoryList,
+  src: data.src,
+}));
+
+const media: CategoryData = {
+  id,
+  type,
+  title,
+  cover,
+};
 ---
 
 <li>
   <a
     class="category-item relative group p-2 flex gap-4 hover:bg-card-primary-dark hover:shadow-lg rounded-sm overflow-hidden transition duration-300"
-    href={`/categories/${slug}`}
+    href={`/categories/${id}`}
   >
     <div class="h-12 w-12 aspect-square flex-none rounded-sm overflow-hidden">
-      <Image
-        inferSize
+      <img
         class="object-cover w-full h-full"
         src={cover}
         alt={`Portada de ${title}`}
@@ -33,7 +55,8 @@ const songsNum = songs.filter((song) => song.categoriesId.includes(id)).length;
       size="small"
       transition:name={`play-side-menu ${category.id} button`}
       transition:persist
-      media={category}
+      media={media}
+      playlistMedia={categoryPlaylistMedia}
     />
 
     <div class="truncate flex flex-col justify-center">
@@ -41,7 +64,7 @@ const songsNum = songs.filter((song) => song.categoriesId.includes(id)).length;
         {title}
       </h4>
 
-      <span class="text-xs">{songsNum} Cançons</span>
+      <span class="text-xs">{formatCatSongsNumString(categorySongsNum)}</span>
     </div>
   </a>
 </li>

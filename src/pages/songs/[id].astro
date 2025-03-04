@@ -1,0 +1,57 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { render } from "astro:content";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const [songs, categories] = await Promise.all([
+    getCollection("songs"),
+    getCollection("categories"),
+  ]);
+
+  return songs.map((song) => {
+    const songCategories = categories.filter((category) =>
+      song.data.categoryList.includes(category.data.title)
+    );
+
+    return {
+      params: {
+        id: song.id,
+      },
+      props: {
+        song: song,
+        songCategories,
+      },
+    };
+  });
+}
+
+const { id } = Astro.params;
+const { song, songCategories } = Astro.props;
+const { data, body } = song;
+const { cover, title } = data;
+// const Content = await render(song);
+---
+
+<Layout>
+  <img
+    width="200px"
+    src={cover}
+    alt={`Portada de ${title}`}
+    transition:name=`song ${id} image`
+  />
+
+  <h4>
+    <span transition:name={`song ${id} title`}>{title}</span>
+  </h4>
+
+  <ul>
+    {songCategories.map((category) => <li>{category.data.title}</li>)}
+  </ul>
+
+  <div>{body}</div>
+
+  <!-- <Content /> -->
+
+  <!-- <a href={songTestPdfPath} target="_blank">Acords</a> -->
+</Layout>

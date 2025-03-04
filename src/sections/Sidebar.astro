@@ -4,8 +4,11 @@ import Library from "@/icons/Library.astro";
 import Search from "@/icons/Search.astro";
 import SideMenuItem from "@/components/SideMenuItem.astro";
 import Songs from "@/icons/Songs.astro";
-import { categories } from "@/lib/data";
+// import { categories } from "@/lib/data";
 import SideMenuCard from "@/components/SideMenuCard.astro";
+import { getCollection } from "astro:content";
+
+const categories = await getCollection("categories");
 ---
 
 <nav class="flex flex-col flex-1 gap-2">

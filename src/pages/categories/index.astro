@@ -1,13 +1,34 @@
 ---
 import BigCard from "@/components/BigCard.astro";
+import type { CategoryData } from "@/env";
 import Layout from "@/layouts/Layout.astro";
+import { getCollection } from "astro:content";
 
-import { categories } from "@/lib/data";
+const [categories, songs] = await Promise.all([
+  getCollection("categories"),
+  getCollection("songs"),
+]);
+
+const categoriesData: CategoryData[] = categories.map(({ id, data }) => ({
+  id,
+  ...data,
+}));
+const getCategorySongsNum = (categoryTitle: string) => {
+  return songs.filter((song) => song.data.categoryList.includes(categoryTitle))
+    .length;
+};
 ---
 
 <Layout>
   <h3 class="text-3xl my-4 text-white">Categories</h3>
   <ul class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2">
-    {categories.map((category) => <BigCard media={category} />)}
+    {
+      categoriesData.map((category) => (
+        <BigCard
+          media={category}
+          categorySongsNum={getCategorySongsNum(category.title)}
+        />
+      ))
+    }
   </ul>
 </Layout>

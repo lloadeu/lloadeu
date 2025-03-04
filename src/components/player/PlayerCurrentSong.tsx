@@ -1,24 +1,21 @@
-import type { Song } from "@/lib/data";
-import { getSongCategories } from "@/lib/utilsMedia";
+import type { SongData } from "@/env";
 import { usePlayerStore } from "@/store/playerStore";
 
 const PlayerCurrentSong = () => {
-  const currentSong = usePlayerStore((state) => state.currentSong) as Song;
+  const currentSong = usePlayerStore((state) => state.currentSong as SongData);
   return (
     <>
       <div className="h-full bg-blue-400 rounded-md overflow-hidden">
         <img
           className="h-full object-cover aspect-square"
-          src={currentSong.image}
+          src={currentSong.cover}
           alt={`Portada de ${currentSong.title}`}
         />
       </div>
       <div className="pt-2 truncate">
         <div className="text-white truncate">{currentSong.title}</div>
         <div className="text-sm truncate">
-          {getSongCategories(currentSong)
-            .map(({ title }) => title)
-            .join(", ")}
+          {currentSong.categoryList.join(", ")}
         </div>
       </div>
     </>
