@@ -12,8 +12,13 @@ const PlayerCurrentSong = () => {
           alt={`Portada de ${currentSong.title}`}
         />
       </div>
-      <div className="pt-2 truncate">
-        <div className="text-white truncate">{currentSong.title}</div>
+      <div className="h-full truncate flex flex-col justify-end">
+        <a
+          className="text-white truncate hover:underline"
+          href={`/songs/${currentSong.id}`}
+        >
+          {currentSong.title}
+        </a>
         <div className="text-sm truncate">
           {currentSong.categoryList.join(", ")}
         </div>
