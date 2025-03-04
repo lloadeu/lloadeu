@@ -1,5 +1,8 @@
 ---
+import PlayPageButton from "@/components/PlayPageButton";
+import type { CategoryData, SongData } from "@/env";
 import Layout from "@/layouts/Layout.astro";
+import { formatCatSongsNumString } from "@/lib/utilsMedia";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
@@ -28,25 +31,52 @@ const { id } = Astro.params;
 const { category, categorySongs } = Astro.props;
 const { data } = category;
 const { cover, title } = data;
-console.log(categorySongs);
+
+const categorySongsNum = categorySongs.length;
+const categoryData: CategoryData = {
+  id,
+  type: data.type,
+  title: data.title,
+  cover: data.cover,
+};
+
+const categorySongsData: SongData[] = categorySongs.map(({ id, data }) => ({
+  id,
+  type: data.type,
+  title: data.title,
+  cover: data.cover,
+  categoryList: data.categoryList,
+  src: data.src,
+}));
 ---
 
 <Layout>
   <div>
-    <h1 class="text-3xl mb-10">Categoria {id}</h1>
-    <picture>
+    <header class="flex">
       <img
-        class="max-w-64"
+        class="max-w-60 aspect-square object-cover shadow-lg rounded-lg"
         src={cover}
         alt={`Portada de ${title}`}
         transition:name=`category ${id} image`
       />
-    </picture>
-    <h2 class="text-2xl text-white mt-4">
-      <span transition:name=`category ${id} title`>
-        {title}
-      </span>
-    </h2>
+      <div class="flex flex-col justify-end ml-8">
+        <h3 class="font-light">Categoria</h3>
+        <h1 class="text-5xl my-2 font-bold text-white">
+          <span transition:name=`category ${id} title`>
+            {title}
+          </span>
+        </h1>
+        <p class="font-semibold">
+          {formatCatSongsNumString(categorySongsNum)} &centerdot; 107 minuts
+        </p>
+      </div>
+    </header>
+
+    <PlayPageButton
+      client:visible
+      media={categoryData}
+      playlistMedia={categorySongsData}
+    />
 
     <ul>
       {
