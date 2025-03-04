@@ -77,8 +77,10 @@ const songData: SongData = {
 
   <PlayPageButton client:visible media={songData} />
 
-  <h3 class="text-xl text-white mb-2">Lletra</h3>
-  <div class="space-y-4">
+  <div
+    class="space-y-4 min-w-96 bg-zinc-300 text-zinc-800 p-8 rounded-lg w-fit"
+  >
+    <h3 class="text-xl text-zinc-900 font-bold mb-2">Lletra</h3>
     <Content />
   </div>
 
