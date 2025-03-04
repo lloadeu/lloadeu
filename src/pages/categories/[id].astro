@@ -81,6 +81,10 @@ const categorySongsData: (SongData & { chords: string | undefined })[] =
       playlistMedia={categorySongsData}
     />
 
-    <Playlist playlistMedia={categorySongsData} playlistId={id} />
+    <Playlist
+      client:visible
+      playlistMedia={categorySongsData}
+      playlistId={id}
+    />
   </div>
 </Layout>
