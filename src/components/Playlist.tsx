@@ -36,6 +36,7 @@ const Playlist = ({ playlistId, playlistMedia }: Props) => {
       <TableBody>
         {playlistMedia.map((song, songIndex) => (
           <PlaylistItem
+            key={song.id}
             songIndex={songIndex}
             song={song}
             playlistId={playlistId}

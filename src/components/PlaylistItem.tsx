@@ -55,7 +55,6 @@ const PlaylistItem = ({
         "bg-card-primary-dark text-white"
       }
     `}
-      key={song.id}
     >
       <TableCell className="relative text-lg">
         <span className="">{songNumber}</span>
