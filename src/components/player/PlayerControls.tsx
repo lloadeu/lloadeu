@@ -11,7 +11,7 @@ const PlayerControls = () => {
         <PlayerControlButtons />
       </div>
 
-      <div className="flex flex-col items-center w-full">
+      <div className="absolute -top-5 left-0 flex flex-col items-center w-full md:relative md:top-0">
         <PlayerControlProgressBar audioRef={audioRef} />
       </div>
 

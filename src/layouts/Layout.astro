@@ -3,10 +3,11 @@ import Sidebar from "@/sections/Sidebar.astro";
 import Player from "@/sections/Player";
 import "@/styles/global.css";
 import { ClientRouter } from "astro:transitions";
+import PhoneNav from "@/sections/PhoneNav.astro";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="cat">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -21,7 +22,7 @@ import { ClientRouter } from "astro:transitions";
         <Sidebar />
       </aside>
       <main
-        class="[grid-area:main] relative p-6 rounded-lg overflow-y-auto my-scrollbar bg-bg-dark"
+        class="[grid-area:main] relative p-6 rounded-lg overflow-y-auto my-scrollbar bg-bg-dark mb-2 md:mb-0"
       >
         <a class="w-6 h-6 absolute top-0 right-0 cursor-auto" href="/admin"></a>
         <slot />
@@ -29,6 +30,9 @@ import { ClientRouter } from "astro:transitions";
       <footer class="[grid-area:player] rounded-lg bg-player-bg-dark">
         <Player client:load transition:name="media-player" transition:persist />
       </footer>
+      <aside id="phone-nav" class="[grid-area:phone-nav]">
+        <PhoneNav />
+      </aside>
     </div>
     <!-- netlify identity -->
     <script
@@ -44,5 +48,25 @@ import { ClientRouter } from "astro:transitions";
       "player player";
     grid-template-columns: 350px 1fr; /* 350px is the width of the sidebar */
     grid-template-rows: 1fr 110px; /* 110px is the height of the player */
+  }
+  #phone-nav {
+    display: none;
+  }
+
+  @media (max-width: 1024px) {
+    #app {
+      grid-template-areas:
+        "phone-nav"
+        "main"
+        "player";
+      grid-template-columns: 1fr; /* Una sola columna */
+      grid-template-rows: max-content 1fr 96px;
+    }
+    aside {
+      display: none; /* Oculta el sidebar en móviles */
+    }
+    #phone-nav {
+      display: block;
+    }
   }
 </style>

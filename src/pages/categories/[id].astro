@@ -60,14 +60,14 @@ const categorySongsData: (SongData & { chords: string | undefined })[] =
 
 <Layout>
   <div>
-    <header class="flex mb-8">
+    <header class="flex flex-col md:flex-row gap-x-8 mb-8">
       <img
         class="max-w-60 aspect-square object-cover shadow-lg rounded-lg"
         src={cover}
         alt={`Portada de ${title}`}
         transition:name=`category ${id} image`
       />
-      <div class="flex flex-col justify-end ml-8">
+      <div class="flex flex-col justify-end mt-4">
         <h3 class="font-light">Categoria</h3>
         <h1 class="text-5xl my-2 font-bold text-white">
           <span transition:name=`category ${id} title`>

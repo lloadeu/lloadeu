@@ -30,7 +30,9 @@ const Playlist = ({ playlistId, playlistMedia }: Props) => {
         <TableRow className="hover:bg-transparent">
           <TableHead className="w-10">#</TableHead>
           <TableHead>Títol</TableHead>
-          <TableHead className="text-right">Acords</TableHead>
+          <TableHead className="text-right hidden md:table-cell">
+            Acords
+          </TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>

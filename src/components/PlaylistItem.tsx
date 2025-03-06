@@ -84,7 +84,7 @@ const PlaylistItem = ({
           {song.title}
         </a>
       </TableCell>
-      <TableCell className="text-right overflow-hidden">
+      <TableCell className="text-right overflow-hidden hidden md:table-cell">
         {song.chords && (
           <a
             className="cursor-pointer opacity-0 translate-x-8 bg-[#111] py-1 px-3 rounded-sm group-hover:opacity-100 group-hover:translate-x-0 hover:bg-[#111]/80 transition duration-600"

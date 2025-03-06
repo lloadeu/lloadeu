@@ -1,0 +1,32 @@
+---
+import SideMenuItem from "@/components/SideMenuItem.astro";
+import Home from "@/icons/Home.astro";
+import Library from "@/icons/Library.astro";
+import Search from "@/icons/Search.astro";
+import Songs from "@/icons/Songs.astro";
+---
+
+<nav class="flex gap-2">
+  <div class="rounded-lg p-2 bg-bg-dark">
+    <ul class="flex gap-4 p-2 sm:p-4 items-center">
+      <SideMenuItem class="p-0" href="/">
+        <Home class="size-4 sm:size-6 p-0" />
+      </SideMenuItem>
+      <SideMenuItem class="p-0" href="/search">
+        <Search class="size-4 sm:size-6 p-0" />
+      </SideMenuItem>
+    </ul>
+  </div>
+  <div class="rounded-lg p-2 bg-bg-dark w-full">
+    <ul class="flex gap-4 sm:gap-8 p-2 sm:p-4 items-center">
+      <SideMenuItem class="p-0 gap-2" href="/songs">
+        <Songs class="size-4 sm:size-6" />
+        <span class="text-sm sm:text-base"> Cançons </span>
+      </SideMenuItem>
+      <SideMenuItem class="p-0 gap-2" href="/categories">
+        <Library class="size-4 sm:size-6" />
+        <span class="text-sm sm:text-base"> Categories </span>
+      </SideMenuItem>
+    </ul>
+  </div>
+</nav>

@@ -48,14 +48,14 @@ const songData: SongData = {
 ---
 
 <Layout>
-  <header class="flex border-b-2 border-b-text-dark/30 mb-8 pb-8">
+  <header class="flex flex-col md:flex-row gap-x-8 border-b-2 border-b-text-dark/30 mb-8 pb-8">
     <img
       class="max-w-60 aspect-square object-cover shadow-lg rounded-lg"
       src={cover}
       alt={`Portada de ${title}`}
       transition:name=`song ${id} image`
     />
-    <div class="flex flex-col justify-end ml-8">
+    <div class="flex flex-col justify-end mt-4">
       <h3 class="font-light">Cançó</h3>
       <h1 class="text-5xl my-2 font-bold text-white">
         <span transition:name=`song ${id} title`>

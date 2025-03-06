@@ -59,7 +59,7 @@ const PlayPageButton = ({
   return (
     <button
       className={`
-        grid place-content-center size-16 my-4
+        grid place-content-center size-16 mt-4
         bg-accent-color rounded-full cursor-pointer hover:bg-accent-color-hover/90 hover:scale-105 transition duration-300 
       `}
       onClick={handleClick}
