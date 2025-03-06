@@ -60,7 +60,7 @@ const categorySongsData: (SongData & { chords: string | undefined })[] =
 
 <Layout>
   <div>
-    <header class="flex">
+    <header class="flex mb-8">
       <img
         class="max-w-60 aspect-square object-cover shadow-lg rounded-lg"
         src={cover}
@@ -77,14 +77,13 @@ const categorySongsData: (SongData & { chords: string | undefined })[] =
         <p class="font-semibold">
           {formatCatSongsNumString(categorySongsNum)}
         </p>
+        <PlayPageButton
+          client:visible
+          media={categoryData}
+          playlistMedia={categorySongsData}
+        />
       </div>
     </header>
-
-    <PlayPageButton
-      client:visible
-      media={categoryData}
-      playlistMedia={categorySongsData}
-    />
 
     <Playlist
       client:visible

@@ -52,7 +52,7 @@ const PlaylistItem = ({
       hover:bg-card-primary-dark group
       ${
         isCurrentSongInCurrentPlaylistAndPlaying &&
-        "bg-card-primary-dark text-white"
+        "bg-card-primary-dark text-accent-color"
       }
     `}
     >
