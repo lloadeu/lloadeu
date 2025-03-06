@@ -14,9 +14,7 @@ export async function getStaticPaths() {
 
   return songs.map((song) => {
     const songCategories = categories
-      .filter((category) =>
-        song.data.categoryList.includes(category.data.title)
-      )
+      .filter((category) => song.data.categoryList.includes(category.id))
       .map((category) => ({
         title: category.data.title,
         link: `/categories/${category.id}`,
@@ -37,7 +35,7 @@ export async function getStaticPaths() {
 const { id } = Astro.params;
 const { song, songCategories } = Astro.props;
 const { data } = song;
-const { cover, title, categoryList } = data;
+const { cover, title } = data;
 const { Content } = await render(song);
 
 const songData: SongData = {

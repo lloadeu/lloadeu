@@ -3,7 +3,7 @@ type: song
 title: Alçat radiant | Jerusalem
 cover: /media/images/alcat-radiant-jerusalem.jpg
 categoryList:
-  - Lloança
+  - lloança
 src: /media/music/alcat-radiant-jerusalem.mp3
 originalTitle: Debout, resplendis
 originalAuthors:

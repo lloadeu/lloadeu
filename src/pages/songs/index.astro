@@ -4,7 +4,11 @@ import type { SongData } from "@/env";
 import Layout from "@/layouts/Layout.astro";
 import { getCollection } from "astro:content";
 
-const songs = await getCollection("songs");
+const [songs, categories] = await Promise.all([
+  getCollection("songs"),
+  getCollection("categories"),
+]);
+
 const songsData: SongData[] = songs.map(({ id, data }) => ({
   id,
   type: data.type,
@@ -13,6 +17,12 @@ const songsData: SongData[] = songs.map(({ id, data }) => ({
   categoryList: data.categoryList,
   src: data.src,
 }));
+
+const getSongCategoriesTitle = (song: SongData) => {
+  return categories
+    .filter((category) => song.categoryList.includes(category.id))
+    .map((category) => category.data.title);
+};
 ---
 
 <Layout>
@@ -20,7 +30,7 @@ const songsData: SongData[] = songs.map(({ id, data }) => ({
   <ul class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
     {
       songsData.map((song) => (
-        <BigCard media={song} songCategories={song.categoryList} />
+        <BigCard media={song} songCategories={getSongCategoriesTitle(song)} />
       ))
     }
   </ul>

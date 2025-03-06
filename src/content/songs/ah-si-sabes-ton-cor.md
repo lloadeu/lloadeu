@@ -3,7 +3,7 @@ type: song
 title: Ah, si sabes ton cor
 cover: /media/images/ah-si-sabes-ton-cor.jpg
 categoryList:
-  - Fe
+  - fe
 src: /media/music/ah-si-sabes-ton-cor.mp3
 originalAuthors:
   - GOCAM

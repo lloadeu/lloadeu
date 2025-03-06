@@ -101,7 +101,7 @@ collections:
           name: "categoryList",
           widget: "relation",
           collection: "categories",
-          value_field: "title",
+          value_field: "{{slug}}",
           display_fields: ["title"],
           search_fields: ["title"],
           multiple: true,

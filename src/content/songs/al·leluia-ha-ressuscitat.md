@@ -3,7 +3,7 @@ type: song
 title: Al·leluia, ha ressuscitat
 cover: /media/images/alleluia-ha-ressuscitat.jpg
 categoryList:
-  - Resurrecció
+  - resurrecció
 src: /media/music/alleluia-ha-ressuscitat.mp3
 originalTitle: Jesus is alive
 originalAuthors:

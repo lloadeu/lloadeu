@@ -3,7 +3,7 @@ type: song
 title: Al·leluia. Lloeu Déu al seu santuari
 cover: /media/images/alleluia-lloeu-deu-al-seu-santuari.jpg
 categoryList:
-  - Lloança
+  - lloança
 src: /media/music/alleluia-lloeu-deu-al-seu-santuari.mp3
 originalAuthors:
   - A. Taulé

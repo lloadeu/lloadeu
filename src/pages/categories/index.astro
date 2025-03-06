@@ -13,8 +13,8 @@ const categoriesData: CategoryData[] = categories.map(({ id, data }) => ({
   id,
   ...data,
 }));
-const getCategorySongsNum = (categoryTitle: string) => {
-  return songs.filter((song) => song.data.categoryList.includes(categoryTitle))
+const getCategorySongsNum = (categoryId: string) => {
+  return songs.filter((song) => song.data.categoryList.includes(categoryId))
     .length;
 };
 ---
@@ -26,7 +26,7 @@ const getCategorySongsNum = (categoryTitle: string) => {
       categoriesData.map((category) => (
         <BigCard
           media={category}
-          categorySongsNum={getCategorySongsNum(category.title)}
+          categorySongsNum={getCategorySongsNum(category.id)}
         />
       ))
     }

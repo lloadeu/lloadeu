@@ -16,7 +16,7 @@ const { cover, title, type } = data;
 
 const songs = await getCollection("songs");
 const categorySongs = songs.filter((song) =>
-  song.data.categoryList.includes(title)
+  song.data.categoryList.includes(id)
 );
 const categorySongsNum = categorySongs.length;
 const categoryPlaylistMedia: SongData[] = categorySongs.map(({ id, data }) => ({
@@ -53,8 +53,6 @@ const media: CategoryData = {
     <PlayCardButton
       client:visible
       size="small"
-      transition:name={`play-side-menu ${category.id} button`}
-      transition:persist
       media={media}
       playlistMedia={categoryPlaylistMedia}
     />

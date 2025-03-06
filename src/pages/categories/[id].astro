@@ -14,7 +14,7 @@ export async function getStaticPaths() {
 
   return categories.map((category) => {
     const categorySongs = songs.filter((song) =>
-      song.data.categoryList.includes(category.data.title)
+      song.data.categoryList.includes(category.id)
     );
     return {
       params: {
