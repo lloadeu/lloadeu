@@ -2,13 +2,18 @@
 import Sidebar from "@/sections/Sidebar.astro";
 import Player from "@/sections/Player";
 import "@/styles/global.css";
-import CommonHead from "@/components/CommonHead.astro";
+import { ClientRouter } from "astro:transitions";
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <CommonHead />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <!-- TODO -->
+    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
+    <title>Spotify Clone</title>
+    <ClientRouter />
   </head>
   <body>
     <div class="relative h-screen grid gap-2 p-2" id="app">
