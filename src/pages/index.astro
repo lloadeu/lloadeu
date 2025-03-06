@@ -6,13 +6,20 @@ import BigCard from "@/components/BigCard.astro";
 import Greeting from "@/components/Greeting";
 import { getCollection } from "astro:content";
 import type { CategoryData, SongData } from "@/env";
+import { formatId } from "@/lib/utilsMedia";
 
-const [categories, songs, homeCategoriesRes, homeSongsRes] = await Promise.all([
-  getCollection("categories"),
-  getCollection("songs"),
-  getCollection("homeCategories"),
-  getCollection("homeSongs"),
-]);
+const [categoriesRaw, songs, homeCategoriesRes, homeSongsRes] =
+  await Promise.all([
+    getCollection("categories"),
+    getCollection("songs"),
+    getCollection("homeCategories"),
+    getCollection("homeSongs"),
+  ]);
+
+const categories = categoriesRaw.map((category) => ({
+  ...category,
+  id: formatId(category.id),
+}));
 
 const homeCategoriesList = homeCategoriesRes[0].data.categoryList;
 const homeSongsList = homeSongsRes[0].data.songList;

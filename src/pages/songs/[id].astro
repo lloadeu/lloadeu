@@ -2,14 +2,17 @@
 import PlayPageButton from "@/components/PlayPageButton";
 import type { SongData } from "@/env";
 import Layout from "@/layouts/Layout.astro";
+import { formatId } from "@/lib/utilsMedia";
 import { render } from "astro:content";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-  const [songs, categories] = await Promise.all([
+  const [songs, categoriesRaw] = await Promise.all([
     getCollection("songs"),
     getCollection("categories"),
   ]);
+
+  const categories = categoriesRaw.map(category => ({...category, id: formatId(category.id)}))
 
   return songs.map((song) => {
     const songCategories = categories

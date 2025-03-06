@@ -3,14 +3,19 @@ import Playlist from "@/components/Playlist";
 import PlayPageButton from "@/components/PlayPageButton";
 import type { CategoryData, SongData } from "@/env";
 import Layout from "@/layouts/Layout.astro";
-import { formatCatSongsNumString } from "@/lib/utilsMedia";
+import { formatCatSongsNumString, formatId } from "@/lib/utilsMedia";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-  const [categories, songs] = await Promise.all([
+  const [categoriesRaw, songs] = await Promise.all([
     getCollection("categories"),
     getCollection("songs"),
   ]);
+
+  const categories = categoriesRaw.map((category) => ({
+    ...category,
+    id: formatId(category.id),
+  }));
 
   return categories.map((category) => {
     const categorySongs = songs.filter((song) =>

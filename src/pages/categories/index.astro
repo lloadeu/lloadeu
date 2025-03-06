@@ -2,12 +2,18 @@
 import BigCard from "@/components/BigCard.astro";
 import type { CategoryData } from "@/env";
 import Layout from "@/layouts/Layout.astro";
+import { formatId } from "@/lib/utilsMedia";
 import { getCollection } from "astro:content";
 
-const [categories, songs] = await Promise.all([
+const [categoriesRaw, songs] = await Promise.all([
   getCollection("categories"),
   getCollection("songs"),
 ]);
+
+const categories = categoriesRaw.map((category) => ({
+  ...category,
+  id: formatId(category.id),
+}));
 
 const categoriesData: CategoryData[] = categories.map(({ id, data }) => ({
   id,

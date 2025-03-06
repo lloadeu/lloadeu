@@ -14,3 +14,7 @@ export function getYoutubeId(url: string) {
   const match = url.match(p);
   return match ? match[1] : false;
 }
+
+export function formatId(id: string) {
+  return id.replace(/\.md$/, "");
+}

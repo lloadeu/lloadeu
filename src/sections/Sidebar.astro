@@ -7,8 +7,13 @@ import Songs from "@/icons/Songs.astro";
 // import { categories } from "@/lib/data";
 import SideMenuCard from "@/components/SideMenuCard.astro";
 import { getCollection } from "astro:content";
+import { formatId } from "@/lib/utilsMedia";
 
-const categories = await getCollection("categories");
+const categoriesRaw = await getCollection("categories");
+const categories = categoriesRaw.map((category) => ({
+  ...category,
+  id: formatId(category.id),
+}));
 ---
 
 <nav class="flex flex-col flex-1 gap-2">
