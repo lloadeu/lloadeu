@@ -13,11 +13,9 @@ const styleTranslate = {
 };
 
 const PlayPageButton = ({
-  size = "big",
   media,
   playlistMedia,
 }: {
-  size?: "big" | "small";
   media: CategoryData | SongData;
   playlistMedia?: SongData[];
 }) => {
@@ -61,7 +59,7 @@ const PlayPageButton = ({
   return (
     <button
       className={`
-        grid place-content-center size-16 my-8
+        grid place-content-center size-16 my-4
         bg-play-card rounded-full cursor-pointer hover:bg-play-card-hover/90 hover:scale-105 transition duration-300 
       `}
       onClick={handleClick}

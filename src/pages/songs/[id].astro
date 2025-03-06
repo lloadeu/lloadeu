@@ -1,6 +1,5 @@
 ---
 import PlayPageButton from "@/components/PlayPageButton";
-import SongContent from "@/components/SongContent";
 import type { SongData } from "@/env";
 import Layout from "@/layouts/Layout.astro";
 import { render } from "astro:content";
@@ -35,7 +34,8 @@ export async function getStaticPaths() {
 const { id } = Astro.params;
 const { song, songCategories } = Astro.props;
 const { data } = song;
-const { cover, title } = data;
+const { cover, title, originalTitle, originalAuthors, traducedBy, arrengedBy, videoUrl, originalVideoUrl, chords, musicSheet, src } =
+  data;
 const { Content } = await render(song);
 
 const songData: SongData = {
@@ -45,7 +45,7 @@ const songData: SongData = {
 ---
 
 <Layout>
-  <header class="flex">
+  <header class="flex border-b-2 border-b-text-dark/30 mb-8 pb-8">
     <img
       class="max-w-60 aspect-square object-cover shadow-lg rounded-lg"
       src={cover}
@@ -62,23 +62,95 @@ const songData: SongData = {
       <p class="font-semibold">
         {
           songCategories.map(({ title, link }, index) => (
-            <>
+            <span>
               <a class="hover:underline hover:text-white" href={link}>
                 {title}
               </a>
               {index < songCategories.length - 1 && ", "}
-            </>
+            </span>
           ))
         }
       </p>
+      <PlayPageButton client:visible media={songData} />
     </div>
   </header>
 
-  <PlayPageButton client:visible media={songData} />
-
-  <SongContent song={songData} client:visible>
-    <div class="space-y-4">
-      <Content />
+  <main class="flex flex-col lg:flex-row gap-x-2 gap-y-12">
+    <section class="space-y-4 grow">
+      <h3 class="text-3xl font-bold text-white">Lletra</h3>
+      <div class="space-y-4 text-lg">
+        <Content />
+      </div>
+    </section>
+    <div class="grow space-y-12">
+      <section class="space-y-4">
+        <h3 class="text-3xl font-bold text-white">Info</h3>
+        <div>
+          {
+            originalTitle && (
+              <h4 class="text-white mt-4">Títol Original</h4>
+              <p class="text-2xl">{originalTitle}</p>
+            )
+          }
+          {
+            originalAuthors && (
+              <h4 class="text-white mt-4">Autors</h4>
+              <p class="text-2xl ">{originalAuthors.join(", ")}</p>
+            )
+          }
+          {
+            traducedBy && (
+              <h4 class="text-white mt-4">Traducció</h4>
+              <p class="text-2xl">{traducedBy.join(", ")}</p>
+            )
+          }
+          {
+            arrengedBy && (
+              <h4 class="text-white mt-4">Interpretació</h4>
+              <p class="text-2xl">{arrengedBy.join(", ")}</p>
+            )
+          }
+        </div>
+      </section>
+      <section class="space-y-4">
+        <h3 class="text-3xl font-bold text-white">Mediateca</h3>
+        <div class="flex flex-col text-lg space-y-4">
+          {
+            <a class="font-semibold hover:underline" href={src} download>
+              &DownArrowBar; Descarrega la Cançó
+            </a>
+          }
+          {
+            videoUrl && (
+              <a class="font-semibold hover:underline" href={videoUrl} target="_blank" rel="noopener noreferrer">
+                &nearr; Video
+              </a>
+            )
+          }
+          {
+            originalVideoUrl && (
+              <a class="font-semibold hover:underline" href={originalVideoUrl} target="_blank" rel="noopener noreferrer">
+                &nearr; Video Original
+              </a>
+            )
+          }
+          {
+            chords && (
+              <a class="font-semibold hover:underline" href={chords} target="_blank">
+                &nearr; Acords
+              </a>
+            )
+          }
+          {
+            musicSheet && (
+              <a class="font-semibold hover:underline" href={musicSheet} target="_blank">
+                &nearr; Partitura
+              </a>
+            )
+          }
+        </div>
+      </section>
     </div>
-  </SongContent>
+  </main>
 </Layout>
+
