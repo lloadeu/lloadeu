@@ -18,3 +18,10 @@ export function getYoutubeId(url: string) {
 export function formatId(id: string) {
   return id.replace(/\.md$/, "");
 }
+
+export function normalizeString(str: string) {
+  return str
+    .normalize("NFD") // Descompone caracteres acentuados
+    .replace(/[\u0300-\u036f]/g, "") // Elimina los diacríticos
+    .toLowerCase(); // Convierte todo a minúsculas
+}

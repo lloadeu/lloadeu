@@ -1,4 +1,5 @@
 import type { CategorySearchData, SongSearchData } from "@/env";
+import { normalizeString } from "@/lib/utilsMedia";
 import { useState, type ChangeEvent } from "react";
 
 interface Props {
@@ -36,7 +37,7 @@ const Search = ({ categoriesData, songsData }: Props) => {
           const searchWordsMatch = searchStr
             .split(" ")
             .filter((searchWord) =>
-              word.toLowerCase().includes(searchWord.toLowerCase())
+              normalizeString(word).includes(normalizeString(searchWord))
             );
           return searchWordsMatch.length > 0;
         });
@@ -51,7 +52,7 @@ const Search = ({ categoriesData, songsData }: Props) => {
           const searchWordsMatch = searchStr
             .split(" ")
             .filter((searchWord) =>
-              word.toLowerCase().includes(searchWord.toLowerCase())
+              normalizeString(word).includes(normalizeString(searchWord))
             );
           return searchWordsMatch.length > 0;
         });
@@ -65,8 +66,9 @@ const Search = ({ categoriesData, songsData }: Props) => {
     <div className="flex flex-col gap-y-4">
       <div>
         <input
-          className="bg-bg-input px-2 py-1 text-white rounded-lg text-lg h-8 w-full"
+          className="bg-bg-input px-4 py-2 text-white rounded-lg text-lg w-full"
           type="text"
+          placeholder="Què vols escoltar?"
           value={inputText}
           onChange={handleInputChange}
         />
