@@ -1,7 +1,35 @@
 ---
+import Search from "@/components/search/Search";
 import Layout from "@/layouts/Layout.astro";
+import { formatId } from "@/lib/utilsMedia";
+import { getCollection } from "astro:content";
+import type { SongSearchData, CategorySearchData } from "@/env";
+
+const [songs, categoriesRaw] = await Promise.all([
+  getCollection("songs"),
+  getCollection("categories"),
+]);
+const categories = categoriesRaw.map((category) => ({
+  ...category,
+  id: formatId(category.id),
+}));
+
+const songsData: SongSearchData[] = songs.map(({ id, data: { title } }) => ({
+  id,
+  title,
+}));
+const categoriesData: CategorySearchData[] = categories.map(
+  ({ id, data: { title } }) => ({
+    id,
+    title,
+  })
+);
 ---
 
 <Layout>
-  <h3 class="text-white text-2xl text-center mt-8">En construcció</h3>
+  <h3 class="text-white text-3xl font-bold mt-4">Cerca</h3>
+  <p>Troba la teva cançó o categoria</p>
+  <section class="mt-8">
+    <Search client:idle categoriesData={categoriesData} songsData={songsData} />
+  </section>
 </Layout>

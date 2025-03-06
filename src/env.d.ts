@@ -13,3 +13,12 @@ export type SongData = {
   categoryList: string[];
   src: string;
 };
+
+export type SongSearchData = {
+  title: string;
+  id: string;
+};
+export type CategorySearchData = {
+  title: string;
+  id: string;
+};
