@@ -16,7 +16,7 @@ const categories = categoriesRaw.map((category) => ({
 }));
 ---
 
-<nav class="flex flex-col flex-1 gap-2">
+<nav class="flex flex-col grow shrink basis-0 gap-2 min-h-0">
   <div class="rounded-lg p-2 bg-bg-dark">
     <ul>
       <SideMenuItem href="/">
@@ -30,8 +30,8 @@ const categories = categoriesRaw.map((category) => ({
     </ul>
   </div>
 
-  <div class="rounded-lg flex-1 p-2 bg-bg-dark">
-    <ul>
+  <div class="rounded-lg grow shrink basis-0 p-2 bg-bg-dark min-h-0">
+    <ul class="flex flex-col h-full overflow-y-auto">
       <SideMenuItem href="/songs">
         <Songs />
         Cançons
@@ -40,7 +40,9 @@ const categories = categoriesRaw.map((category) => ({
         <Library />
         Categories
       </SideMenuItem>
-      {categories.map((category) => <SideMenuCard category={category} />)}
+      <div class="flex flex-col h-full overflow-y-auto my-scrollbar">
+        {categories.map((category) => <SideMenuCard category={category} />)}
+      </div>
     </ul>
   </div>
 </nav>

@@ -37,6 +37,17 @@
   --color-bg-input: oklch(0.37 0.013 285.805);
 }
 
+/* Para navegadores basados en WebKit (Chrome, Safari, Edge) */
+.my-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Para Firefox */
+.my-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #888 transparent; /* Pulgar: #888, pista: transparente */
+}
+
 :root {
   @apply text-text-dark;
   --background: oklch(1 0 0);

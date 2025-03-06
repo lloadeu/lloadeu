@@ -17,11 +17,11 @@ import { ClientRouter } from "astro:transitions";
   </head>
   <body>
     <div class="relative h-screen grid gap-2 p-2" id="app">
-      <aside class="[grid-area:aside] flex flex-col overflow-y-auto">
+      <aside class="[grid-area:aside] flex flex-col overflow-y-hidden">
         <Sidebar />
       </aside>
       <main
-        class="[grid-area:main] relative p-6 rounded-lg overflow-y-auto bg-bg-dark"
+        class="[grid-area:main] relative p-6 rounded-lg overflow-y-auto my-scrollbar bg-bg-dark"
       >
         <a class="w-6 h-6 absolute top-0 right-0 cursor-auto" href="/admin"></a>
         <slot />
