@@ -13,7 +13,7 @@ const { id, cover, title } = category;
 
 const songs = await getCollection("songs");
 const categorySongs = songs.filter((song) =>
-  song.data.categoryList.includes(title)
+  song.data.categoryList.includes(id)
 );
 const categoryPlaylistMedia: SongData[] = categorySongs.map(({ id, data }) => ({
   id,
