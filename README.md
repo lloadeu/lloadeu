@@ -1,48 +1,61 @@
-# Astro Starter Kit: Basics
+# Music Streaming Platform for RCCeE 🎶
 
-```sh
-npm create astro@latest -- --template basics
-```
+Welcome to the Music Streaming Platform for RCCeE! This is a volunteer-driven project designed to provide a custom music streaming experience for RCCeE's music group, with a focus on easy access and seamless discovery for both RCCeE members and the public. 🎧
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## Overview
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+The Music Streaming Platform for RCCeE is built to showcase and stream music with an emphasis on ease of use and efficient content management. Inspired by popular platforms like Spotify, this platform is available to the public and comes with a responsive design optimized for mobile users. 📱
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+## How It Works 🔄
 
-## 🚀 Project Structure
+Admins update the music catalog using **Decap CMS**, and every change triggers an automatic redeploy. Because the platform features a limited number of songs and updates occur infrequently, I opted for a static site architecture. This approach ensures fast performance and a simplified maintenance process without the overhead of a fully dynamic system.
 
-Inside of your Astro project, you'll see the following folders and files:
+## Features ✨
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+### Music Playback
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+- Stream individual songs and playlists using the native HTML Audio API.
+- Effortlessly navigate between tracks with next/previous song functionality.
+- Inspired by **Spotify** and **Midudev's Spotify Clone Tutorial**.
 
-## 🧞 Commands
+### Content Management
 
-All commands are run from the root of the project, from a terminal:
+- Admins manage all music content through **Decap CMS**.
+- Secure admin authentication is handled by **Netlify Identity** (public users do not need to authenticate).
+- Music metadata is stored statically, and updates trigger automatic redeployment of the site.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+### Responsive Design
 
-## 👀 Want to learn more?
+- Fully responsive design with a custom mobile view tailored for a great user experience on all devices.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## Technology Stack ⚙️
+
+### Frontend
+
+- **Astro**: For fast static site generation.
+- **React**: For dynamic UI components.
+- **TypeScript**: For type safety and enhanced developer experience.
+- **Tailwind CSS**: For a sleek, customizable UI.
+
+### CMS & Deployment
+
+- **Decap CMS**: Manages music content via Git-based CMS integration.
+- **Netlify Identity**: Provides secure admin authentication for managing content.
+- **Automatic Redeployment**: The site automatically redeploys with every content update, ensuring the latest music is always available.
+
+### Audio Streaming
+
+- Powered by the native **HTML Audio API** and enhanced by **Astro's View Transitions** for state persistence, ensuring smooth and uninterrupted music playback.
+
+## Deployment 🚀
+
+The site is publicly deployed in production and automatically redeploys whenever changes are made via Decap CMS. This static deployment strategy was chosen specifically because the music catalog is small and updates are rare, making it both practical and efficient.
+
+## License 📝
+
+This project is open source and available under the **MIT License**.
+
+## Acknowledgments 🙏
+
+- **Spotify**: For its inspiration in music streaming and design.
+- **Midudev**: For providing the foundation through the Spotify clone tutorial.
