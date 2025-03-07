@@ -33,6 +33,19 @@ import PhoneNav from "@/sections/PhoneNav.astro";
         <a class="w-6 h-6 absolute top-0 right-0 cursor-auto" href="/admin"></a>
         <slot />
       </main>
+      <a
+        class="absolute bg-white rounded-full bottom-35 right-10"
+        href="https://www.renovacio.cat/"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <img
+          width="64px"
+          height="auto"
+          src="/logo-rccee.png"
+          alt="Logo Renovació Carismàtica Catòlica en L'Esperit a Catalunya"
+        />
+      </a>
       <footer class="[grid-area:player] rounded-lg bg-player-bg-dark">
         <Player client:load transition:name="media-player" transition:persist />
       </footer>
