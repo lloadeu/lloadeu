@@ -2,6 +2,8 @@
 
 Welcome to the Music Streaming Platform for RCCeE! This is a volunteer-driven project designed to provide a custom music streaming experience for RCCeE's music group, with a focus on easy access and seamless discovery for both RCCeE members and the public. 🎧
 
+[Check it out! &rarr;](https://lloadeu.netlify.app)
+
 ## Overview
 
 The Music Streaming Platform for RCCeE is built to showcase and stream music with an emphasis on ease of use and efficient content management. Inspired by popular platforms like Spotify, this platform is available to the public and comes with a responsive design optimized for mobile users. 📱
@@ -16,7 +18,7 @@ Admins update the music catalog using **Decap CMS**, and every change triggers a
 
 - Stream individual songs and playlists using the native HTML Audio API.
 - Effortlessly navigate between tracks with next/previous song functionality.
-- Inspired by **Spotify** and **Midudev's Spotify Clone Tutorial**.
+- Inspired by **Spotify** and [**Midudev's Spotify Clone Tutorial**](https://www.youtube.com/watch?v=WRc8lz-bp78).
 
 ### Content Management
 
@@ -53,9 +55,9 @@ The site is publicly deployed in production and automatically redeploys whenever
 
 ## License 📝
 
-This project is open source and available under the **MIT License**.
+This project is open source and available under the [**MIT License**](LICENSE).
 
 ## Acknowledgments 🙏
 
 - **Spotify**: For its inspiration in music streaming and design.
-- **Midudev**: For providing the foundation through the Spotify clone tutorial.
+- [**Midudev**](https://github.com/midudev): For providing the foundation through the Spotify clone tutorial _— and for much more!_
