@@ -35,6 +35,9 @@
 
   /* INPUT SEARCH */
   --color-bg-input: oklch(0.37 0.013 285.805);
+
+  --breakpoint-mlg: 55rem;
+  --breakpoint-xs: 28rem;
 }
 
 /* Para navegadores basados en WebKit (Chrome, Safari, Edge) */

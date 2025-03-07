@@ -21,11 +21,13 @@ import Songs from "@/icons/Songs.astro";
     <ul class="flex gap-4 sm:gap-8 p-2 sm:p-4 items-center">
       <SideMenuItem class="p-0 gap-2" href="/songs">
         <Songs class="size-4 sm:size-6" />
-        <span class="text-sm sm:text-base"> Cançons </span>
+        <span class="text-sm sm:text-base text-nowrap truncate"> Cançons </span>
       </SideMenuItem>
       <SideMenuItem class="p-0 gap-2" href="/categories">
         <Library class="size-4 sm:size-6" />
-        <span class="text-sm sm:text-base"> Categories </span>
+        <span class="text-sm sm:text-base text-nowrap truncate">
+          Categories
+        </span>
       </SideMenuItem>
     </ul>
   </div>

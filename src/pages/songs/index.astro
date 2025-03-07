@@ -33,7 +33,7 @@ const getSongCategoriesTitle = (song: SongData) => {
 
 <Layout>
   <h3 class="text-3xl my-4 text-white">Cançons</h3>
-  <ul class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+  <ul class="grid grid-cols-1 xs:grid-cols-2 mlg:grid-cols-4 gap-4">
     {
       songsData.map((song) => (
         <BigCard media={song} songCategories={getSongCategoriesTitle(song)} />

@@ -56,7 +56,7 @@ const PlaylistItem = ({
       }
     `}
     >
-      <TableCell className="relative text-lg">
+      <TableCell className="relative text-sm sm:text-lg">
         <span className="">{songNumber}</span>
         {/* playbutton */}
         <button
@@ -76,7 +76,7 @@ const PlaylistItem = ({
           )}
         </button>
       </TableCell>
-      <TableCell className="text-lg">
+      <TableCell className="text-sm sm:text-lg">
         <a
           className="hover:underline hover:text-white"
           href={`/songs/${song.id}`}
