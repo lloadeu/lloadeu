@@ -27,8 +27,6 @@ const useAudioPlayer = (audioRef: React.RefObject<HTMLAudioElement | null>) => {
       if (isPlaying) {
         audioRef.current.play();
       }
-      // TODO - audioRef play: check double render when song changes
-      console.log("currentSong changed audioref triggers play");
     }
   }, [currentSong]);
 
@@ -36,8 +34,6 @@ const useAudioPlayer = (audioRef: React.RefObject<HTMLAudioElement | null>) => {
   useEffect(() => {
     if (audioRef.current) {
       if (isPlaying) {
-        // TODO - audioRef play: check double render when song changes
-        console.log("isPlaying changed audioref triggers play");
         audioRef.current.play();
       } else {
         audioRef.current.pause();
@@ -64,8 +60,6 @@ const useAudioPlayer = (audioRef: React.RefObject<HTMLAudioElement | null>) => {
     // TODO: use native ontimeupdate from audio element instead of interval
     let currentTimeInterval: number;
     if (isPlaying) {
-      console.log("timer effect triggers");
-
       currentTimeInterval = setInterval(() => {
         updateCurrentTime();
       }, 250);
@@ -73,7 +67,6 @@ const useAudioPlayer = (audioRef: React.RefObject<HTMLAudioElement | null>) => {
 
     return () => {
       if (currentTimeInterval) {
-        console.log("timmer effect cleared");
         clearInterval(currentTimeInterval);
       }
     };
