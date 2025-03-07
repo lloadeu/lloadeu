@@ -1,6 +1,6 @@
 ---
 import BigCard from "@/components/BigCard.astro";
-import type { CategoryData } from "@/env";
+import type { CategoryData, SongData } from "@/env";
 import Layout from "@/layouts/Layout.astro";
 import { formatId } from "@/lib/utilsMedia";
 import { getCollection } from "astro:content";
@@ -23,6 +23,19 @@ const getCategorySongsNum = (categoryId: string) => {
   return songs.filter((song) => song.data.categoryList.includes(categoryId))
     .length;
 };
+
+const getCategorySongs = (category: CategoryData) => {
+  return songs
+    .filter((song) => song.data.categoryList.includes(category.id))
+    .map(({ id, data }) => ({
+      id,
+      type: data.type,
+      title: data.title,
+      cover: data.cover,
+      categoryList: data.categoryList,
+      src: data.src,
+    })) as SongData[];
+};
 ---
 
 <Layout>
@@ -32,6 +45,7 @@ const getCategorySongsNum = (categoryId: string) => {
       categoriesData.map((category) => (
         <BigCard
           media={category}
+          playlistMedia={getCategorySongs(category)}
           categorySongsNum={getCategorySongsNum(category.id)}
         />
       ))

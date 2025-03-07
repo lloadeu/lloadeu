@@ -60,19 +60,19 @@ const PlaylistItem = ({
         <span className="">{songNumber}</span>
         {/* playbutton */}
         <button
-          className={`absolute cursor-pointer inset-0 flex justify-center items-center mt-1 ml-1 bg-white text-black w-8 h-8 rounded-full 
+          className={`absolute cursor-pointer inset-0 flex justify-center items-center mt-1 ml-1 bg-white text-black w-7 h-7 sm:w-8 sm:h-8 rounded-full 
             ${
               isCurrentSongInCurrentPlaylistAndPlaying
-                ? "opacity-100"
-                : "opacity-0"
+                ? "opacity-100 translate-x-0"
+                : "opacity-5 lg:opacity-0 translate-x-5 lg:translate-x-0"
             } 
             group-hover:opacity-100 hover:scale-110 transition duration-200`}
           onClick={handlePlaySong}
         >
           {isCurrentSongInCurrentPlaylistAndPlaying ? (
-            <Pause className="w-3" />
+            <Pause className="w-2.5 sm:w-3" />
           ) : (
-            <Play className="w-3" />
+            <Play className="w-2.5 sm:w-3" />
           )}
         </button>
       </TableCell>

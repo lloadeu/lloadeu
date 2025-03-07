@@ -6,10 +6,11 @@ import { formatCatSongsNumString } from "@/lib/utilsMedia";
 interface Props {
   media: CategoryData | SongData;
   categorySongsNum?: number;
+  playlistMedia?: SongData[];
   songCategories?: string[];
 }
 
-const { media, categorySongsNum, songCategories } = Astro.props;
+const { media, categorySongsNum, songCategories, playlistMedia } = Astro.props;
 
 let href = "/";
 let src = "https://picsum.photos/seed/placeholder4/400/300";
@@ -47,7 +48,11 @@ if (media.type === "song") {
         alt={`Portada de ${title}`}
         loading="eager"
       />
-      <PlayCardButton client:visible media={media} />
+      <PlayCardButton
+        client:visible
+        media={media}
+        playlistMedia={playlistMedia}
+      />
     </div>
 
     <div class="my-3 px-3">

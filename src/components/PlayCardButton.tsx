@@ -61,7 +61,12 @@ const PlayCardButton = ({
   return (
     <button
       className={`absolute grid place-content-center 
-        ${!isCurrentMediaPlaying && "opacity-0 scale-50"}
+        ${!isCurrentMediaPlaying && size === "small" && "opacity-0 scale-50"}
+        ${
+          !isCurrentMediaPlaying &&
+          size === "big" &&
+          "opacity-100 lg:opacity-0 scale-50"
+        }
         ${!isCurrentMediaPlaying && styleTranslate[size]} 
         bg-accent-color rounded-full cursor-pointer group-hover:opacity-100 group-hover:scale-100 group-hover:translate-0 hover:bg-accent-color-hover/90 hover:scale-105 transition duration-300 
         ${style[size]}`}
