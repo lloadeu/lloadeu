@@ -20,21 +20,23 @@ musicSheet: /media/pdf/amb_la_joia_als_llavis_us_canto_partitura.pdf
 **Amb la joia als llavis us canto lloances,**\
 **Vós sou l’aigua viva,**\
 **Vós la font que em salva.**\
-**El meu cor exulta davant la vostra obra.**\
+**El meu cor exulta** \
+**davant la vostra obra.**\
 **Vós doneu la vida,** \
 **Vós sou el meu Déu.**
 
-1. Vós sou el meu Déu, el meu cor us cerca.  \
-Tinc set de Vós de dia i de nit.\
-Cerco el vostre amor perquè m’acompanyi.\
-Tinc set de Vós, Senyor Déu meu.
-
-2. Quan m’adormo al llit sempre penso en Vós;\
-quan us reclamo sempre responeu. \
-I el meu cor s’alegra, sadollat de tot. \
-Tinc set de Vós, Senyor Déu meu.
-
+1. Vós sou el meu Déu, \
+   el meu cor us cerca.  \
+   Tinc set de Vós de dia i de nit.\
+   Cerco el vostre amor \
+   perquè m’acompanyi.\
+   Tinc set de Vós, Senyor Déu meu.
+2. Quan m’adormo al llit \
+   sempre penso en Vós;\
+   quan us reclamo sempre responeu. \
+   I el meu cor s’alegra, sadollat de tot. \
+   Tinc set de Vós, Senyor Déu meu.
 3. Cada cop que us cerco us deixeu trobar; \
-feu-me sentir que us tinc a prop meu.  \
-Com la terra eixuta, com l’erm sedegós, \
-Tinc set de Vós, Senyor Déu meu.
+   feu-me sentir que us tinc a prop meu.  \
+   Com la terra eixuta, com l’erm sedegós, \
+   Tinc set de Vós, Senyor Déu meu.
