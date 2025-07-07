@@ -32,11 +32,15 @@ Cerco el vostre amor \
 perquè m’acompanyi.\
 Tinc set de Vós, Senyor Déu meu.
 
+
+
 Quan m’adormo al llit \
 sempre penso en Vós;\
 quan us reclamo sempre responeu. \
 I el meu cor s’alegra, sadollat de tot. \
 Tinc set de Vós, Senyor Déu meu.
+
+
 
 Cada cop que us cerco us deixeu trobar; \
 feu-me sentir que us tinc a prop meu.  \
