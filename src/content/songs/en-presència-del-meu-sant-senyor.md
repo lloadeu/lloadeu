@@ -9,7 +9,7 @@ originalTitle: In the presence
 originalAuthors:
   - Mark Altrogge
 traducedBy:
-  - Anònim
+  - Grup Bona Nova
 arrengedBy:
   - Carla Costa
 videoUrl: https://youtu.be/paQ3n9vfjwE?si=CiWO7XbwVPFpOceW
