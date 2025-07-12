@@ -4,6 +4,7 @@ title: Parenostre
 cover: /media/images/pare-nostre.jpg
 categoryList:
   - eucaristia
+  - missa
 src: /media/music/pare-nostre.mp3
 originalTitle: Parenostre
 originalAuthors:
