@@ -20,10 +20,13 @@ chords: /media/pdf/alçat-radiant-jerusalem.pdf
 musicSheet: /media/pdf/jerusalem__alçat_radiant-1-.pdf
 ---
 Alçat radiant, que ja apunta l’albada,\
-ve fulgent la glòria de Déu. (2)\
+ve fulgent la glòria de Déu. (2)
+
 Au, aixeca els ulls mira ben enllà,\
-ja pots eixamplar el teu cor ben ple de goig.\
-Heus aquí els teus fills que retornen vers tu,\
+ja pots eixamplar \
+el teu cor ben ple de goig.\
+Heus aquí els teus fills \
+que retornen vers tu,\
 porten al costat les teves filles.
 
 **Jerusalem, Jerusalem,**\
@@ -31,10 +34,13 @@ porten al costat les teves filles.
 **Jerusalem, Jerusalem,**\
 **canta i dansa pel teu Déu.**
 
-Vers la teva llum et vindran tots els pobles,\
-reis nombrosos vers el teu esclat. (2)\
+Vers la teva llum \
+et vindran tots els pobles,\
+reis nombrosos vers el teu esclat. (2)
+
 Folcs de camells et cobriran arreu,\
-grans ramats vindran des de Quedar, d’Efà.\
+grans ramats vindran \
+des de Quedar, d’Efà.\
 Lluny des de Sabà duran l’or i l’encens\
 tots adreçaran a Déu lloances.
 
@@ -43,11 +49,14 @@ tots adreçaran a Déu lloances.
 **Jerusalem, Jerusalem,**\
 **canta i dansa pel teu Déu.**
 
-Fills dels estrangers bastiran tes muralles,\
-llurs reis per tes portes entraran. (2)\
+Fills dels estrangers \
+bastiran tes muralles,\
+llurs reis per tes portes entraran. (2)
+
 Sobre teu del Líban l’esplet vindrà,\
 tu tindràs per nom el de Ciutat de Déu.\
-Ja hauran acabat aquells jorns del teu dol,\
+Ja hauran acabat \
+aquells jorns del teu dol,\
 Tu, el meu honor enmig dels pobles.
 
 **Jerusalem, Jerusalem,**\
