@@ -4,6 +4,7 @@ title: Cos de Jesús
 cover: /media/images/cos-de-jesús.jpg
 categoryList:
   - adoració
+  - eucaristia
 src: /media/music/cos-de-jesus.mp3
 originalTitle: Corps de Jésus
 originalAuthors:
