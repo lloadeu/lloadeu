@@ -8,6 +8,10 @@ src: /media/music/en-presencia-del-meu-gran-senyor.mp3
 originalTitle: In the presence
 originalAuthors:
   - Mark Altrogge
+traducedBy:
+  - Anònim
+arrengedBy:
+  - Carla Costa
 videoUrl: https://youtu.be/paQ3n9vfjwE?si=CiWO7XbwVPFpOceW
 originalVideoUrl: https://youtu.be/brK8uruysIM?si=4NDlSt7J4yixOrKQ
 chords: /media/pdf/en-presència.pdf
