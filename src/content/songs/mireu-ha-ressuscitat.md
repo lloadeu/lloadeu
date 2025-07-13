@@ -4,6 +4,7 @@ title: Mireu / Ha ressuscitat
 cover: /media/images/mireu_ha-ressuscitat.jpg
 categoryList:
   - resurrecció
+  - pasqua
 src: /media/music/mireu_desperteu_ha_ressuscitat.mp3
 originalTitle: Mirad
 originalAuthors:
