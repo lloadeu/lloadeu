@@ -1,6 +1,6 @@
 ---
 type: song
-title: Senyor meu i Dëu meu
+title: Senyor meu i Déu meu, no hi ha ningú com tu
 cover: /media/images/senyor-meu-i-deu-meu.jpg
 categoryList:
   - lloança
