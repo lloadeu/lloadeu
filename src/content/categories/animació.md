@@ -1,6 +1,6 @@
 ---
 type: category
 title: Animació
-cover: /media/images/animacio.jpg
+cover: /media/images/animació.jpg
 color: orange
 ---
