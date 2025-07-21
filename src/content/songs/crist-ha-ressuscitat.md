@@ -10,6 +10,7 @@ originalAuthors:
   - Tradició hebrea
 arrengedBy:
   - Carla Costa
+videoUrl: https://youtu.be/fz03pjqcEeY?si=TLpFf-fuJFWQ10VV
 chords: /media/pdf/crist-ha-ressuscitat.pdf
 ---
 /// Crist ha ressuscitat, ///  Al·leluia!\
