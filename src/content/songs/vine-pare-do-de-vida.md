@@ -1,6 +1,6 @@
 ---
 type: song
-title: Vine, Pare, do de Vida
+title: Vine Pare, do de Vida
 cover: /media/images/vine-pare.jpg
 categoryList:
   - esperit
