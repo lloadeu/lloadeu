@@ -11,7 +11,7 @@ originalAuthors:
 arrengedBy:
   - Grup Bona Nova
 videoUrl: https://www.youtube.com/watch?v=4dQfSAOiN5o
-chords: /media/pdf/al·leluia.-lloeu-déu-al-seu-santuari.pdf
+chords: /media/pdf/al·leluia-lloeu-déu-al-seu-santuari.docx.pdf
 musicSheet: /media/pdf/allelluialloeudeualseusantuari-tot.pdf
 ---
 **Al·leluia, al·leluia, al·leluia, al·leluia. (2)**
