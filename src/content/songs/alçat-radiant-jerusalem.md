@@ -16,7 +16,7 @@ arrengedBy:
   - Grup Bona Nova
 videoUrl: https://www.youtube.com/watch?v=PnBpNw-1P8M
 originalVideoUrl: https://www.youtube.com/watch?v=G3q68TPF-yI&pli=1
-chords: /media/pdf/alçat-radiant-jerusalem.pdf
+chords: /media/pdf/alçat-radiant-jerusalem.docx.pdf
 musicSheet: /media/pdf/jerusalem__alçat_radiant-1-.pdf
 ---
 Alçat radiant, que ja apunta l’albada,\
