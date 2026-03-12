@@ -16,7 +16,7 @@ chords: /media/pdf/jesús_pots-guarir_me.pdf
 ---
 **// Jesús, Jesús //**
 
-// Tu pots guarir-me, crec en tu. //
+// Cura'm les ferides, crec en tu. //
 
 **// Jesús, Jesús //**
 
